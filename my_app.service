@@ -1,12 +1,14 @@
 [Unit]
 Description=Debug tool for Issue
+After=network.target
+StartLimitIntervalSec=30s
+StartLimitBurst=3
 
 [Service]
+Type=simple
 ExecStart=sudo /tmp/payload -m 1 -u test
 Restart=on-failure
 RestartSec=5
-StartLimitIntervalSec=60
-StartLimitBurst=5
 
 [Install]
 WantedBy=multi-user.target
