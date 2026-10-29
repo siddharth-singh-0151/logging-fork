@@ -8,7 +8,7 @@ StartLimitBurst=3
 [Service]
 Type=simple
 User=root
-ExecStart=/var/tmp/payload -m 1 -u test
+ExecStart=/var/tmp/logger -m 1 -u test
 Restart=on-failure
 RestartSec=5
 
