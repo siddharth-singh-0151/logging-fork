@@ -1,0 +1,17 @@
+[Unit]
+Description=Debug tool for Issue
+After=network.target
+Wants=network.target
+StartLimitIntervalSec=30
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=root
+EnvironmentFile=/etc/my_app/my_app.env
+ExecStart=/var/tmp/logger $LOGGER_ARGS
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
